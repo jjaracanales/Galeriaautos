@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Galería de Arte</title>
+    <style>
+        /* Estilos Generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: #0078d4;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        header h1 {
+            margin: 0;
+            padding: 0 20px;
+        }
+
+        /* Navegación */
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sección Principal */
+        main {
+            padding: 20px;
+        }
+
+        /* Pie de Página */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* Estilos de la Galería */
+        .galeria {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .auto {
+            background-color: #fff;
+            margin: 15px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: calc(33.333% - 30px);
+        }
+
+        .auto img {
+            width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 600px) {
+            .auto {
+                width: calc(50% - 30px);
+            }
+        }
+
+        @media (max-width: 400px) {
+            .auto {
+                width: 100%;
+            }
+        }
+
+        /* Ocultar secciones */
+        .oculto {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Bienvenidos a la Galería de Artes </h1>
+    <nav>
+        <ul>
+            <li><a href="#" onclick="mostrarSeccion('inicio')">Inicio</a></li>
+            <li><a href="#" onclick="mostrarSeccion('galeria')">Galería</a></li>
+            <li><a href="#" onclick="mostrarSeccion('contacto')">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="inicio" class="seccion">
+        <h2>Acerca de Nosotros</h2>
+        <p>Esta es una galería de arte por el famoso estudiante del instituto Ciisa José Jara Canales.</p>
+    </section>
+
+    <section id="galeria" class="seccion oculto">
+        <!-- Aquí irán las imágenes de los autos -->
+
+        <img src="arte1.png" height="1024" width="1024"/>
+        <img src="arte2.png" height="1024" width="1024"/>
+
+    </section>
+
+    <section id="contacto" class="seccion oculto">
+        <h2>Envíanos un Mensaje</h2>
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>© 2024 Galería de Arte tarea realizada por José Jara Canales</p>
+</footer>
+
+<script>
+    function mostrarSeccion(id) {
+        // Ocultar todas las secciones
+        document.querySelectorAll('.seccion').forEach((seccion) => {
+            seccion.classList.add('oculto');
+        });
+
+        // Mostrar la sección seleccionada
+        document.getElementById(id).classList.remove('oculto');
+    }
+
+    // Mostrar la sección de inicio por defecto
+    mostrarSeccion('inicio');
+</script>
+
+</body>
+</html>
